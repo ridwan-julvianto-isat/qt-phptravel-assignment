@@ -1,0 +1,6 @@
+Task here is to design the test cases for below requirements and to automate the same using Java Selenium and below technologies.
+• Page Object Model  
+• Maven 
+• TestNg  
+• Log4J 
+• Cucumber BDD
