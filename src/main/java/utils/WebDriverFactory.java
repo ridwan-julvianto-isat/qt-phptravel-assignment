@@ -20,7 +20,7 @@ public class WebDriverFactory {
 	}
 			
 	private static WebDriver newWebDriver() {
-		System.setProperty("webdriver.chrome.driver", "src//test//java//resources//driver//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "src//test//resources//driver//chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		return driver;
 	}

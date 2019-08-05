@@ -1,12 +1,9 @@
 package pageobjects;
 
-import org.openqa.selenium.support.PageFactory;
-
 public class Homepage extends ABasePageObjects {
 	
 	public Homepage() {
-		initObjects();
-		PageFactory.initElements(driver, this);
+		initObjects(this);
 	}
 	
 	public void openHomepage() {
