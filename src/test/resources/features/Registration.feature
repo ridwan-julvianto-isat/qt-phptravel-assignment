@@ -10,13 +10,14 @@ User should be able to traverse to registration page from home page
      When User input correct Registration data with Last Name
       And User submit the Registration form
      Then System navigates to "My Accounts" page
-      And My Account page displays welcome message with "Hi First Name" greeting
+      And My Account page displays welcome message
   
+  @ready-to-test
   Scenario: Able to register new User without Last Name (Last Name is Optional)
      When User input correct Registration data without Last Name
       And User submit the Registration form
      Then System navigates to "My Accounts" page
-      And My Account page displays welcome message with "Hi First Name" greeting
+      And My Account page displays welcome message without Last Name
   
   Scenario Outline: Verify validations rule in Registration page
      When User input value in violation of <validation rule> in <field name> in Registration form
