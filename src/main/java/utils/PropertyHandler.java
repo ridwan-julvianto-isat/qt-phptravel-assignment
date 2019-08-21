@@ -41,7 +41,7 @@ public class PropertyHandler {
 		String propertyValue;
 		propertyValue = (readFromFile().getProperty(propertyName));
 
-		logger.info(propertyName + " value is: " + propertyValue);
+		//logger.info(propertyName + " value is: " + propertyValue);
 		return propertyValue;
 	}
 
@@ -53,7 +53,7 @@ public class PropertyHandler {
 			dataProperties.store(writer, null);
 			writer.close();
 
-			logger.info("Insert/update " + propertyName + " with new value: " + newValue);
+			//logger.info("Insert/update " + propertyName + " with new value: " + newValue);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -13,14 +13,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.support.ThreadGuard;
 
 public class WebDriverFactory {
-	//private static WebDriverFactory instance = new WebDriverFactory();
 	private static long timeoutinseconds = Long.valueOf(PropertyHandler.testConfig.getValue("global_timeout"));
-
-	private WebDriver driver;
-
-	/*
-	 * public static WebDriverFactory getInstance() { return instance; }
-	 */
 
 	public static WebDriver createWebDriver() {
 		String browser = PropertyHandler.testConfig.getValue("browser");
@@ -43,14 +36,6 @@ public class WebDriverFactory {
 		
 		return driver;
 	}
-
-	/*
-	 * public WebDriver getWebDriver() { return driver; }
-	 */
-	
-	/*
-	 * public void removeWebDriver() { driver.quit(); }
-	 */
 
 	private static WebDriver initiateChromeDriver() {
 
@@ -91,6 +76,8 @@ public class WebDriverFactory {
 	}
 
 	private static WebDriver initiateIEDriver() {
+		System.setProperty("webdriver.ie.driver", "src//test//resources//driver//IEDriverServer_x64_3.14.0.exe");
+
 		InternetExplorerOptions options = new InternetExplorerOptions();
 		options.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 		options.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);

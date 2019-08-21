@@ -1,13 +1,10 @@
 package phptravel.stepdefs.webpages;
 
-import org.junit.Assert;
-
-import cucumber.api.PendingException;
 import io.cucumber.java.en.And;
-import phptravel.stepdefs.PageObjects;
+import phptravel.stepdefs.APageObjects;
 import utils.PropertyHandler;
 
-public class AccountPageStepDefs extends PageObjects {
+public class AccountPageStepDefs extends APageObjects {
 	
 	@And("^My Account page displays welcome message$")
 	public void my_account_page_displays_welcome_message() throws Throwable {

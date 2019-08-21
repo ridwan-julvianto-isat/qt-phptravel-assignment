@@ -4,19 +4,20 @@ import org.apache.log4j.Logger;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import utils.WebDriverFactory;
 
-public class Hooks extends PageObjects {
+public class Hooks extends APageObjects {
 
 	final static Logger logger = Logger.getLogger(Hooks.class);
 
 	@Before
 	public void beforeScenario() {
-		PageObjects.init();
+		logger.info("Initializing WebDriver and PageObjects");
+		APageObjects.init();
 	}
 
 	@After
 	public void afterScenario() {
-		PageObjects.close();
+		logger.info("Closing WebDriver");
+		APageObjects.close();
 	}
 }

@@ -1,18 +1,13 @@
 package phptravel.stepdefs.webpages;
 
-import java.sql.Date;
-import java.text.DateFormat;
-
 import org.apache.log4j.Logger;
 
-import cucumber.api.PendingException;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import phptravel.stepdefs.PageObjects;
+import phptravel.stepdefs.APageObjects;
 import utils.PropertyHandler;
 
-public class RegistrationPageStepDefs extends PageObjects {
+public class RegistrationPageStepDefs extends APageObjects {
 
 	private static Logger logger = Logger.getLogger(RegistrationPageStepDefs.class);
 

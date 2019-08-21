@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 
 import utils.PageObjectsHelper;
-import utils.PropertyHandler;
-import utils.WebDriverFactory;
 
 public class MyAccountPage {
 
@@ -28,8 +26,8 @@ public class MyAccountPage {
 	}
 
 	public void verifyAccountPageOpens() {
-		Wait<WebDriver> wait = PageObjectsHelper.getFluentWait(driver);
-        wait.until(ExpectedConditions.visibilityOf(myAccountHeaderText));
+		PageObjectsHelper.waitForVisibilityOf(driver, myAccountHeaderText);
+		
         //verify it is Account page
         Assert.assertEquals("https://www.phptravels.net/account/", driver.getCurrentUrl());
 	}

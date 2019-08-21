@@ -5,14 +5,14 @@ User should be able to traverse to registration page from home page
     Given PHP Travel homepage is displayed
       And User navigated to "Registration" page
   
-  @ready-to-test
+  @ready-to-test @valid-scenario
   Scenario: Successfully register new user
      When User input correct Registration data with Last Name
       And User submit the Registration form
      Then System navigates to "My Accounts" page
       And My Account page displays welcome message
   
-  @ready-to-test
+  @ready-to-test @invalid-scenario
   Scenario: Able to register new User without Last Name (Last Name is Optional)
      When User input correct Registration data without Last Name
       And User submit the Registration form
