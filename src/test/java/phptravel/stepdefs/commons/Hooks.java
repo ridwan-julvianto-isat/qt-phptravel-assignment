@@ -1,4 +1,4 @@
-package phptravel.stepdefs;
+package phptravel.stepdefs.commons;
 
 import org.apache.log4j.Logger;
 

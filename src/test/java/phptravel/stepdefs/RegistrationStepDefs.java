@@ -1,15 +1,15 @@
-package phptravel.stepdefs.webpages;
+package phptravel.stepdefs;
 
 import org.apache.log4j.Logger;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import phptravel.stepdefs.APageObjects;
+import phptravel.stepdefs.commons.APageObjects;
 import utils.PropertyHandler;
 
-public class RegistrationPageStepDefs extends APageObjects {
+public class RegistrationStepDefs extends APageObjects {
 
-	private static Logger logger = Logger.getLogger(RegistrationPageStepDefs.class);
+	private static Logger logger = Logger.getLogger(RegistrationStepDefs.class);
 
     @When("^User input correct Registration data with Last Name$")
     public void user_input_correct_registration_data_with_last_name() throws Throwable {
@@ -43,4 +43,22 @@ public class RegistrationPageStepDefs extends APageObjects {
     public void user_submit_the_registration_form() throws Throwable {
         registrationPage.submitInput();
     }
+    
+    @And("^My Account page displays welcome message$")
+	public void my_account_page_displays_welcome_message() throws Throwable {
+
+        String firstName = PropertyHandler.testData.getValue("firstName");
+        String lastName = PropertyHandler.testData.getValue("lastName");
+        
+		accountPage.verifyGreeting(firstName, lastName);
+	}
+    
+    @And("^My Account page displays welcome message without Last Name$")
+	public void my_account_page_displays_welcome_message_without_last_name() throws Throwable {
+
+        String firstName = PropertyHandler.testData.getValue("firstName");
+        String lastName = "";
+        
+		accountPage.verifyGreeting(firstName, lastName);
+	}
 }

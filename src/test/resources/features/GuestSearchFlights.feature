@@ -6,8 +6,14 @@ Feature: Search for Flight
   Scenario: Search for Flights
      When User select <flight> search tab
       And User input the following flights itinerary
-      | Direction | Embarkation | Destination | Departure Date | Arrival Date | No Of Adults | No Of Childs | No Of Infants | 
-      | One Way   | London      | Singapore   | 19-08-2019     | N/A          | 1            | 0            | 0             | 
+      | Direction       | One Way    | 
+      | Embarkation     | London     |
+      | Destination     | Singapore  |
+      | Departure Date  | 19-08-2019 |
+      | Arrival Date    | N/A        |
+      | No Of Adults    | 1          |
+      | No Of Childs    | 0          |
+      | No Of Infants   | 0          |
       And User click Search button
      Then System navigates to "Search Result" page
       And List of Airlines shown
