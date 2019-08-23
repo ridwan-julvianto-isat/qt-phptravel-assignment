@@ -12,10 +12,10 @@ public abstract class APageObjects {
 	
 	protected static WebDriver driver;
 
-	protected static HomePage homePage;
-	protected static RegistrationPage registrationPage;
-	protected static MyAccountPage accountPage;
-	protected static SearchResultPage searchPage;
+	protected HomePage homePage;
+	protected RegistrationPage registrationPage;
+	protected MyAccountPage accountPage;
+	protected SearchResultPage searchPage;
 	
 	public static void init( ) {
 		driver = WebDriverFactory.createWebDriver();
@@ -27,7 +27,7 @@ public abstract class APageObjects {
 
 	public static void close() {
 		driver.close();
-		//driver.quit();
+		driver.quit();
 	}
 	
 }
