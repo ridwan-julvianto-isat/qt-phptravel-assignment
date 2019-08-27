@@ -11,13 +11,13 @@ public class Hooks extends APageObjects {
 
 	@Before
 	public void beforeScenario() {
-		logger.info("Initializing WebDriver and PageObjects");
+		logger.info("Initializing WebDriver and PageObjects.");
 		APageObjects.init();
 	}
 
 	@After
 	public void afterScenario() {
-		logger.info("Closing WebDriver");
+		logger.info("Closing WebDriver.");
 		APageObjects.close();
 	}
 }

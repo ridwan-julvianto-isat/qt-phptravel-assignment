@@ -8,8 +8,9 @@ import io.cucumber.testng.CucumberOptions;
 		features = { "src/test/resources/features" }, glue = { "phptravel.stepdefs" }
 		// , monochrome = true
 		, tags = { "@ready-to-test", "@valid-scenario" }
-		// , tags = {"@end-to-end, @regression"} //run tagged as @end-to-end OR @regression
-		// , tags = {"@end-to-end", "@regression"} //run tagged as @end-to-end AND @regression
+		//, tags = { "@under-construction" }
+		// , tags = {"@end-to-end, @regression"} //run scenario tagged with @end-to-end OR @regression
+		// , tags = {"@end-to-end", "@regression"} //run scenario tagged with @end-to-end AND @regression
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 

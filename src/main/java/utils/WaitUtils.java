@@ -3,6 +3,7 @@ package utils;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
-public class PageObjectsHelper {
+public class WaitUtils {
 
 	private static Wait<WebDriver> getFluentWait(WebDriver driver) {
 		Duration fluentTimeout = Duration.ofSeconds(Long.valueOf(PropertyHandler.testConfig.getValue("fluent_wait_timeout")));
@@ -28,8 +29,26 @@ public class PageObjectsHelper {
 	
 	public static void waitForVisibilityOf(WebDriver driver, WebElement element) {
 		try {
-			Wait<WebDriver> wait = PageObjectsHelper.getFluentWait(driver);
+			Wait<WebDriver> wait = WaitUtils.getFluentWait(driver);
 	        wait.until(ExpectedConditions.visibilityOf(element));	
+		} catch (Exception e) {
+			Assert.fail("Invalid Test scenario. Element " + element.getTagName() + " is not found.");
+		}		
+	}
+	
+	public static void waitForInvisibilityOf(WebDriver driver, WebElement element) {
+		try {
+			Wait<WebDriver> wait = WaitUtils.getFluentWait(driver);
+	        wait.until(ExpectedConditions.invisibilityOf(element));	
+		} catch (Exception e) {
+			Assert.fail("Invalid Test scenario. Element " + element.getTagName() + " is not found.");
+		}		
+	}
+	
+	public static void waitForAccessOf(WebDriver driver, WebElement element) {
+		try {
+			Wait<WebDriver> wait = WaitUtils.getFluentWait(driver);
+	        wait.until(ExpectedConditions.elementToBeClickable(element));	
 		} catch (Exception e) {
 			Assert.fail("Invalid Test scenario. Element " + element.getTagName() + " is not found.");
 		}		

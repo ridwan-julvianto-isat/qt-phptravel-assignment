@@ -12,13 +12,14 @@ public abstract class APageObjects {
 	
 	protected static WebDriver driver;
 
-	protected HomePage homePage;
-	protected RegistrationPage registrationPage;
-	protected MyAccountPage accountPage;
-	protected SearchResultPage searchPage;
+	protected static HomePage homePage;
+	protected static RegistrationPage registrationPage;
+	protected static MyAccountPage accountPage;
+	protected static SearchResultPage searchPage;
 	
 	public static void init( ) {
 		driver = WebDriverFactory.createWebDriver();
+		
 		homePage = new HomePage(driver);
 		registrationPage = new RegistrationPage(driver);
 		accountPage = new MyAccountPage(driver);

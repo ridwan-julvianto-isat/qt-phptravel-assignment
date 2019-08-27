@@ -2,10 +2,10 @@ package phptravel.stepdefs;
 
 import java.util.Map;
 
-import cucumber.api.PendingException;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import pageobjects.commons.CommonObjects.FLIGHT_TRIP;
 import phptravel.stepdefs.commons.APageObjects;
 
 public class GuestSearchFlightsStepDefs extends APageObjects {
@@ -19,8 +19,7 @@ public class GuestSearchFlightsStepDefs extends APageObjects {
 	public void user_input_the_following_flights_itinerary(DataTable dt) throws Throwable {
 		Map<String, String> flightList = dt.asMap(String.class, String.class);
 
-		for (int i = 0; i < flightList.size(); i++) {
-			String direction = flightList.get("Direction");
+			FLIGHT_TRIP direction = flightList.get("Direction") == "Round Trip"? FLIGHT_TRIP.ROUND_TRIP : FLIGHT_TRIP.ONE_WAY;
 			String embark = flightList.get("Embarkation");
 			String dest = flightList.get("Destination");
 			String depDate = flightList.get("Departure Date");
@@ -30,14 +29,13 @@ public class GuestSearchFlightsStepDefs extends APageObjects {
 			String infants = flightList.get("No Of Infants");
 			
 			homePage.selectFlight(direction, embark, dest, depDate, arriveDate, adults, childs, infants);
-		}
 	}
 	
     @And("^User click Search button$")
     public void user_click_search_button() throws Throwable {
-       homePage.initSearch();
+       homePage.initSearch();       
     }
-    
+        
     @And("^List of Airlines shown$")
     public void list_of_airlines_shown() throws Throwable {
         searchPage.verifyListOfAirlines();

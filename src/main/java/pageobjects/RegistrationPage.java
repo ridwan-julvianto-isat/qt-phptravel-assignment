@@ -4,11 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.apache.log4j.Logger;
-import utils.PageObjectsHelper;
+import utils.WaitUtils;
 
 public class RegistrationPage {
 	private WebDriver driver;
@@ -48,13 +46,13 @@ public class RegistrationPage {
 	}
 	
 	public void verifyRegistrationPageOpens() {
-		PageObjectsHelper.waitForVisibilityOf(driver, registrationSection);
+		WaitUtils.waitForVisibilityOf(driver, registrationSection);
 		
         //verify it is registration page
         Assert.assertEquals("https://www.phptravels.net/register", driver.getCurrentUrl());
         Assert.assertEquals("SIGN UP", registrationSection.getText());
         
-        PageObjectsHelper.waitForVisibilityOf(driver, removeCookiesButton);
+        WaitUtils.waitForVisibilityOf(driver, removeCookiesButton);
 		if(removeCookiesButton.isEnabled()) removeCookiesButton.click();
 	}
 	

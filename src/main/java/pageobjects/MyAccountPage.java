@@ -6,10 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-
-import utils.PageObjectsHelper;
+import utils.WaitUtils;
 
 public class MyAccountPage {
 
@@ -26,7 +23,7 @@ public class MyAccountPage {
 	}
 
 	public void verifyAccountPageOpens() {
-		PageObjectsHelper.waitForVisibilityOf(driver, myAccountHeaderText);
+		WaitUtils.waitForVisibilityOf(driver, myAccountHeaderText);
 		
         //verify it is Account page
         Assert.assertEquals("https://www.phptravels.net/account/", driver.getCurrentUrl());
@@ -34,6 +31,8 @@ public class MyAccountPage {
 
 	public void verifyGreeting(String firstName, String lastName) {
         String greeting = "Hi, " + firstName + " " + lastName;
+        
+        
         Assert.assertEquals(greeting, myAccountHeaderText.getText());
 	}
 }
